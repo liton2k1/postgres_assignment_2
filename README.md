@@ -40,6 +40,8 @@ CREATE TABLE enrollments (
 - **VARCHAR(n)**: প্রয়োজন অনুযায়ী যতটুকু জায়গা লাগে ঠিক ততটুকুই জায়গা নেয়।
 - **CHAR(n)**: সবসময় ঠিক n ক্যারেক্টার জায়গা নেয়, কম হলে ফাঁকা (space) জায়গা দিয়ে পূরণ করে।
 
+**উদাহরণ:**
+
 ```sql
 name VARCHAR(50)
 code CHAR(10)
@@ -50,6 +52,8 @@ code CHAR(10)
 ## 5. Explain the purpose of the WHERE clause in a SELECT statement.
 
 `WHERE` ক্লজ দিয়ে নির্দিষ্ট শর্ত অনুযায়ী ডেটা ফিল্টার করা যায়। অর্থাৎ একজন ইউজারের কন্ডিশনের উপর ভিত্তিতে করে ডেটা দেখানো হবে।
+
+**উদাহরণ:**
 
 ```sql
 SELECT * FROM students WHERE age > 18;
@@ -62,6 +66,8 @@ SELECT * FROM students WHERE age > 18;
 - **LIMIT**: শুরুতে কতটি রেকর্ড দেখানো হবে তা নির্ধারন করা হয়।
 - **OFFSET**: শুরুতে কতটি রেকর্ড বাদ দেওয়া হবে এবং তারপর থেকে ডেটা দেখানো হবে। এটি সাধারণত পেজিনেশন (pagination) এর জন্য ব্যবহার হয়।
 
+**উদাহরণ:**
+
 ```sql
 SELECT * FROM students LIMIT 10 OFFSET 20;
 ```
@@ -71,6 +77,8 @@ SELECT * FROM students LIMIT 10 OFFSET 20;
 ## 7. How can you modify data using UPDATE statements?
 
 `UPDATE` কমান্ড দিয়ে একটি টেবিলের নির্দিষ্ট কোনো ডেটা পরিবর্তন করা যায়। তবে আপনাকে করে নির্দিষ্ট বলে দিতে আপনি একটি টেবিলের কোন ডেটা পরিবর্তন করতে চান। আর নির্দিষ্ট করে বলে দেওয়ার জন্য আমরা `WHERE` ব্যবহার করি। `WHERE` ছাড়া `UPDATE` করলে সব ডেটা পরিবর্তন হয়ে যাবে।
+
+**উদাহরণ:**
 
 ```sql
 UPDATE students SET age = 20 WHERE student_id = 1;
@@ -89,6 +97,8 @@ UPDATE students SET age = 20 WHERE student_id = 1;
 - RIGHT JOIN
 - FULL OUTER JOIN
 
+**উদাহরণ:**
+
 ```sql
 SELECT s.name, e.course_id
 FROM students s
@@ -100,6 +110,8 @@ JOIN enrollments e ON s.student_id = e.student_id;
 ## 9. Explain the GROUP BY clause and its role in aggregation operations.
 
 `GROUP BY` ক্লজ ব্যবহার করে ডেটাকে নির্দিষ্ট কলামের মান অনুযায়ী গ্রুপ করা যায়। এরপর প্রতিটি গ্রুপের উপর aggregation functions (যেমন COUNT(), SUM(), AVG(), MAX(), MIN()) ব্যবহার করে গ্রুপভিত্তিক রেজাল্ট পাওয়া যায়।
+
+**উদাহরণ:**
 
 ```sql
 SELECT department, COUNT(*)
@@ -114,6 +126,8 @@ GROUP BY department;
 - **COUNT()**: কতগুলো ডেটা বা রেকর্র আছে তা জানা যায়।
 - **SUM()**: সবগুলো ভ্যালুর যোগফল বের করা যায়।
 - **AVG()**: সবগুলো ভ্যালুর গড় বের করা যায়।
+
+**উদাহরণ:**
 
 ```sql
 SELECT COUNT(*) FROM students;
